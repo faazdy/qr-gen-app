@@ -78,12 +78,13 @@ main{
 }
 .container{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   align-items: center;
   border: 1px solid rgb(238, 238, 238);
   border-radius: 20px;
   width: 100%;
   margin: 0 auto;
+  overflow: auto;
 
   form{
     padding: 1em;
@@ -98,10 +99,29 @@ main{
     flex-direction: column;
     padding: 2em;
     gap: 1em;
+    width: 100%;
 
     .btn{
       margin-top: 1.5em;
       text-align: center;
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 768px){
+  .container form{
+    width: 100%;
+  }
+}
+@media screen and (max-width: 300px){
+  .container{
+    grid-template-columns: 1fr;
+
+    .form{
+      width: 100%;
+    }
+    input{
       width: 100%;
     }
   }

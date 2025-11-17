@@ -75,6 +75,7 @@ input{
     border: 1px solid $secondaryColor;
     border-radius: $borderRadius;
     font-size: $textSize;
+    width: 100%;
 }
 
 .btn-primary{
@@ -108,4 +109,16 @@ input{
         background-color: darken($mainBlack, 10%);
         color: $mainWhite;
     }
+}
+
+@media screen and (max-width: 768px){
+    main{
+        width: 100%;
+        padding: 0 1em;
+    }
+    
+    footer{
+        padding: 2em;
+    }
+    
 }
