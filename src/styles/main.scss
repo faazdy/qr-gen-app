@@ -1,0 +1,94 @@
+@use './variables' as *;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $fontFamily;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    letter-spacing: $letterSpacing;
+    font-size: $textSize;
+}
+
+main{
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+h1{
+    color: $titleColor;
+    font-size: $titleSize;
+}
+h2{
+    color: $subtitleColor;
+    font-size: $subtitleSize;
+}
+.main-subtitle{
+    color: $primaryColor
+}
+p{
+    color: $textColor;
+    font-size: $textSize;
+}
+a{
+    color: $mainBlack;
+    text-decoration: none;
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
+hr{
+    border: none;
+    height: 1px;
+    background-color: $secondaryColor;
+    margin: 2em 0;
+}
+.footer-title{
+    color: $primaryColor;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+
+section{
+    padding: 2em;
+    margin-top: 1.5em;
+}
+
+.btn-primary{
+    display: inline-block;
+    background-color: $mainBlack;
+    color: $mainWhite;
+    padding: 0.8em 1.2em;
+    border: none;
+    border-radius: $borderRadius;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+
+    &:hover{
+        background-color: $accentColor;
+    }
+}
+
+.btn-secondary{
+    display: inline-block;
+    background-color: transparent;
+    color: $mainBlack;
+    padding: 0.8em 1.2em;
+    border: none;
+    border: 1px solid $mainBlack;
+    border-radius: $borderRadius;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover{
+        background-color: darken($mainBlack, 10%);
+        color: $mainWhite;
+    }
+}
