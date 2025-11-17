@@ -10,7 +10,7 @@
 **Generate beautiful, downloadable QR codes in seconds.**  
 No signup • No limits • No ads
 
-[Live Demo](https://qrmeapp.vercel.app) | [Generate QR](/qr)
+[Live Demo](https://qrmeapp.vercel.app) | [Generate QR](/https://qrmeapp.vercel.app/app)
 
 ---
 
