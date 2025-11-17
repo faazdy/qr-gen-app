@@ -1,10 +1,12 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import QRGenerator from "../views/QRGenerator.vue";
+import NotFound from "../views/NotFound.vue";
 
 const routes = [
     { path: '/', component: Home },
-    { path: '/app', component: QRGenerator }
+    { path: '/app', component: QRGenerator },
+    { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound }
 ]
 
 const router = createRouter({

@@ -28,8 +28,7 @@ No signup • No limits • No ads
 
 | Tech        | Version   |
 |-------------|-----------|
-| Vue 3       | `^
-3.4.0`    |
+| Vue 3       | `^3.4.0`  |
 | Vite        | `^5.0.0`  |
 | Vue Router  | `^4.2.0`  |
 | Sass (SCSS) | `^1.70.0` |
