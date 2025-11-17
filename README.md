@@ -36,13 +36,14 @@ No signup • No limits • No ads
 ---
 
 ## Project Structure
+```bash
 src/
 ├── views/          # Pages (Home, QR Generator)
 ├── router/         # Vue Router config
 ├── assets/         # Images, icons
 ├── styles/         # Global SCSS
 └── components/     # Reusable components
-
+```
 ---
 
 ## Quick Start
