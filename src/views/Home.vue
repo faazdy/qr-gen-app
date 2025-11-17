@@ -69,7 +69,7 @@
                 <li class="footer-title">QRMe</li>
                 <li><a href="/">Home</a></li>
                 <li><router-link to="/app">Generate a QR</router-link></li>
-                <li><a href="#">GitHub Code</a></li>
+                <li><a href="https://github.com/faazdy/qr-gen-app">GitHub Code</a></li>
                 <li><a href="https://goqr.me/api/">API</a></li>
             </ul>
             <ul>
