@@ -4,35 +4,103 @@ import { ref, onMounted, computed } from 'vue';
 const dataAPI = ref('')
 const inputURL = ref('')
 
-const API = 'https://api.qrserver.com/v1/create-qr-code/?data=Welcome'
+const API = 'https://api.qrserver.com/v1/create-qr-code/?data=WelcomeToQRMe'
 
 //fetch
-onMounted(async()=>{
-  try{
+onMounted(async () => {
+  try {
     const res = await fetch(API)
     dataAPI.value = res.url
     console.log('Welcome, the API is running', res.url)
-  } catch(e) {
+  } catch (e) {
     console.error(e)
   }
 })
 
 // generate qr 
-const generateQR = () =>{
+const generateQR = () => {
   dataAPI.value = `https://api.qrserver.com/v1/create-qr-code/?data=${inputURL.value}`
 }
+
+// download qr
+const downloadQR = async () => {
+  try {
+    const response = await fetch(dataAPI.value, { 
+      mode: "cors",
+      redirect: "follow"
+    })
+
+    const blob = await response.blob()
+    const objectUrl = URL.createObjectURL(blob)
+
+    const a = document.createElement("a")
+    a.href = objectUrl
+    a.download = "qrme-code.png"
+    a.click()
+
+    URL.revokeObjectURL(objectUrl)
+  } catch (e) {
+    console.error("Error descargando QR:", e)
+  }
+}
+
+
 </script>
 
 <template>
-  <h1>{{ dataAPI }}</h1>
-  <h2>{{ inputURL }}</h2>
-  <form @submit.prevent="generateQR">
-    <input type="text" v-model="inputURL">
-    <button type="submit">generate</button>
-  </form>
-  <img :src="dataAPI" alt="qr">
+  <main>
+    <section class="title">
+      <h1>QR Generator Tool.</h1>
+      <p>QR To: <span class="important">{{ inputURL }}</span></p>
+    </section>
+    
+    <section class="container">
+      <form @submit.prevent="generateQR">
+        <label for="">Insert URL or Text</label>
+        <input type="text" v-model="inputURL" placeholder="www.example.com | example">
+        <button type="submit" class="btn-primary">Generate</button>
+      </form>
+      <div class="qr-container">
+        <div class="img">
+          <img :src="dataAPI" alt="qr"/>
+        </div>
+        <div class="btn">
+          <button @click="downloadQR" class="btn-primary">Save PNG</button>
+        </div>
+      </div>
+    </section>
+  </main>
 </template>
 
 <style scoped>
+.container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  align-items: center;
+  border: 1px solid rgb(238, 238, 238);
+  border-radius: 20px;
+  width: 100%;
+  margin: 0 auto;
 
+  form{
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .qr-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2em;
+    gap: 1em;
+
+    .btn{
+      margin-top: 1.5em;
+      text-align: center;
+      width: 100%;
+    }
+  }
+}
 </style>

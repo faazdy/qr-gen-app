@@ -69,6 +69,14 @@ section{
     margin-top: 1.5em;
 }
 
+input{
+    padding: 1em;
+    border: 0;
+    border: 1px solid $secondaryColor;
+    border-radius: $borderRadius;
+    font-size: $textSize;
+}
+
 .btn-primary{
     display: inline-block;
     background-color: $mainBlack;
