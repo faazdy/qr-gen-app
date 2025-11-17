@@ -73,6 +73,9 @@ const downloadQR = async () => {
 </template>
 
 <style scoped>
+main{
+  min-height: 100vh;
+}
 .container{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
