@@ -28,6 +28,10 @@ h2{
     color: $subtitleColor;
     font-size: $subtitleSize;
 }
+span.important{
+    color: $accentColor;
+    font-weight: bold;
+}
 .main-subtitle{
     color: $primaryColor
 }
@@ -48,6 +52,11 @@ hr{
     height: 1px;
     background-color: $secondaryColor;
     margin: 2em 0;
+}
+
+footer{
+    border-color: $secondaryColor;
+    padding: 2.5em 5.5em;
 }
 .footer-title{
     color: $primaryColor;
