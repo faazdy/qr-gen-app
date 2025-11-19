@@ -74,7 +74,7 @@ const downloadQR = async () => {
           <img :src="dataAPI" alt="qr" v-else/>
         </div>
         <div class="btn">
-          <button @click="downloadQR" class="btn-primary" :disabled="qrError">Save PNG</button>
+          <button @click="downloadQR" :class="qrError ? 'btn-primary disabled' : 'btn-primary'" :disabled="qrError">Save PNG</button>
         </div>
       </div>
     </section>
