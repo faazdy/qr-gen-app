@@ -3,6 +3,8 @@ import { ref, onMounted, computed } from 'vue';
 
 const dataAPI = ref('')
 const inputURL = ref('')
+const qrLoader = ref(false)
+const qrError = ref(false)
 
 const API = 'https://api.qrserver.com/v1/create-qr-code/?data=WelcomeToQRMe'
 
@@ -19,7 +21,12 @@ onMounted(async () => {
 
 // generate qr 
 const generateQR = () => {
-  dataAPI.value = `https://api.qrserver.com/v1/create-qr-code/?data=${inputURL.value}`
+  if(inputURL.value.trim() === '') {
+    qrError.value = true
+    return
+  } 
+    dataAPI.value = `https://api.qrserver.com/v1/create-qr-code/?data=${inputURL.value.trim()}`
+    qrError.value = false
 }
 
 // download qr
@@ -57,15 +64,17 @@ const downloadQR = async () => {
     <section class="container">
       <form @submit.prevent="generateQR">
         <label for="">Insert URL or Text</label>
+        <p class="error" v-if="qrError">Please insert a valid text or URL.</p>
         <input type="text" v-model="inputURL" placeholder="www.example.com | example">
         <button type="submit" class="btn-primary">Generate</button>
       </form>
       <div class="qr-container">
         <div class="img">
-          <img :src="dataAPI" alt="qr"/>
+          <div class="loader" v-if="qrError"></div>
+          <img :src="dataAPI" alt="qr" v-else/>
         </div>
         <div class="btn">
-          <button @click="downloadQR" class="btn-primary">Save PNG</button>
+          <button @click="downloadQR" class="btn-primary" :disabled="qrError">Save PNG</button>
         </div>
       </div>
     </section>
