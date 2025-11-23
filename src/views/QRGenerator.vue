@@ -72,12 +72,17 @@ const downloadQR = async () => {
         <input type="text" id="input-text" v-model="inputURL" placeholder="www.example.com | example">
         <label for="size">QR size: <span>{{ sizeInput === '' ? '200x200' : sizeInput }}</span></label>
         <select name="" id="size" v-model="sizeInput">
-          <option value="">Default</option>
-          <option value="30x30">Small</option>
-          <option value="500x500">Medium</option>
+          <option value="">Normal</option>
+          <option value="30x30">Very Small</option>
+          <option value="50x50">Small</option>
+          <option value="400x400">Medium</option>
           <option value="900x900">Large</option>
         </select>
         <button type="submit" class="btn-primary">Generate</button>
+        <p class="tip">
+          Note: On mobile or small screens, the preview size may not reflect changes. 
+          Download the PNG to view the QR at your selected dimensions.
+        </p>
       </form>
       <div class="qr-container">
         <div class="img">
@@ -120,7 +125,7 @@ main{
     font-weight: bold;
   }
   .qr-container{
-    flex: 1;
+    flex: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -130,12 +135,26 @@ main{
     gap: 1em;
     width: 100%;
 
+    img{
+      width: 100%;
+      height: auto;
+    
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
     .btn{
       margin-top: 1.5em;
       text-align: center;
       width: 100%;
     }
   }
+}
+.tip{
+  font-style: italic;
+  font-size: 13px;
+  color: rgb(105, 105, 105);
 }
 
 @media screen and (max-width: 768px){
