@@ -29,6 +29,10 @@ nav{
         color: black;
         text-decoration: none;
         margin: 0 1em;
+        
+        &:hover{
+            color: #b60000;
+        }
     }
 
     img{

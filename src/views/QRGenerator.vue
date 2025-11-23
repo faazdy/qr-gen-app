@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
+import { motion } from 'motion-v'
 
 const dataAPI = ref('')
 const inputURL = ref('')
@@ -59,11 +60,15 @@ const downloadQR = async () => {
 
 <template>
   <main>
-    <section class="title">
+    <motion.section 
+      class="title"
+      :initial="{ opacity: 0, y:-50}"
+      :animate="{ opacity: 1, y:0}"
+      :transition="{ duration: 0.5, ease: 'easeOut' }"
+      >
       <h1>QR Generator Tool.</h1>
       <p>QR To: <span class="important">{{ inputURL }}</span></p>
-      <h3></h3>
-    </section>
+    </motion.section>
     
     <section class="container">
       <form @submit.prevent="generateQR">
@@ -87,7 +92,15 @@ const downloadQR = async () => {
       <div class="qr-container">
         <div class="img">
           <div class="loader" v-if="qrError"></div>
-          <img :src="dataAPI" alt="qr" v-else/>
+          <img
+            :src="dataAPI"
+            class="inEnter" 
+            alt="qr"
+            :initial="{opacity: 0}"
+            :animate="{opacity: 1}"
+            :transition="{duration: 0.45}" 
+            :key="dataAPI"
+            v-else/>
         </div>
         <div class="btn">
           <button @click="downloadQR" :class="qrError ? 'btn-primary disabled' : 'btn-primary'" :disabled="qrError">Save PNG</button>

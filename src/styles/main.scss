@@ -135,6 +135,9 @@ input, select{
     animation: spin 1s linear infinite;
     margin: 0 auto;
 }
+.inEnter{
+    animation: inEnter 0.7s ease forwards;
+}
 
 @media screen and (max-width: 768px){
     main{
@@ -151,4 +154,14 @@ input, select{
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+@keyframes inEnter {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
