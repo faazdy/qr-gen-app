@@ -7,7 +7,7 @@ const dataAPI = ref('')
 
 //form values
 const inputURL = ref('')
-const sizeInput = ref('')
+const sizeInput = ref('200x200')
 const colorInput = ref('#000000')
 const bgColorInput = ref('#ffffff')
 
