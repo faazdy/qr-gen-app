@@ -7,7 +7,7 @@ const sizeInput = ref('')
 const qrLoader = ref(false)
 const qrError = ref(false)
 
-const API = 'https://api.qrserver.com/v1/create-qr-code/?data=WelcomeToQRMe?size=200x200'
+const API = 'https://api.qrserver.com/v1/create-qr-code/?data=WelcomeToQRMe&size=200x200'
 
 //fetch
 onMounted(async () => {
