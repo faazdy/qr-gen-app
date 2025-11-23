@@ -7,7 +7,7 @@ const dataAPI = ref('')
 
 //form values
 const inputURL = ref('')
-const sizeInput = ref('200x200')
+const sizeInput = ref('300x300')
 const colorInput = ref('#000000')
 const bgColorInput = ref('#ffffff')
 
@@ -79,11 +79,11 @@ const downloadQR = async () => {
         </article>
         <details>
           <summary>More Settings.</summary>
-          <article class="form-optional">
+          <motion.article class="form-optional" :initial="{ opacity: 0, y: -50}" :animate="{ opacity: 1, y: 0}" :transition="{ duration: 0.5, ease: 'easeOut'}">
           <div class="form-select-size">
             <label for="size">QR size: <span>{{ sizeInput === '' ? '200x200' : sizeInput }}</span></label>
             <select name="" id="size" v-model="sizeInput">
-              <option value="">Normal</option>
+              <option value="300x300">Normal</option>
               <option value="30x30">Very Small</option>
               <option value="50x50">Small</option>
               <option value="400x400">Medium</option>
@@ -101,7 +101,7 @@ const downloadQR = async () => {
               <input type="color" id="bgcolor" v-model="bgColorInput">
             </div>
           </div>
-        </article>
+        </motion.article>
         </details>
         <br>
         <button type="submit" class="btn-primary">Generate</button>
