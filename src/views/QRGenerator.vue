@@ -3,6 +3,7 @@ import { ref, onMounted, computed } from 'vue';
 
 const dataAPI = ref('')
 const inputURL = ref('')
+const sizeInput = ref('')
 const qrLoader = ref(false)
 const qrError = ref(false)
 
@@ -25,7 +26,7 @@ const generateQR = () => {
     qrError.value = true
     return
   } 
-    dataAPI.value = `https://api.qrserver.com/v1/create-qr-code/?data=${inputURL.value.trim()}`
+    dataAPI.value = `https://api.qrserver.com/v1/create-qr-code/?data=${inputURL.value.trim()}&size=${sizeInput.value}`
     qrError.value = false
 }
 
@@ -59,13 +60,21 @@ const downloadQR = async () => {
     <section class="title">
       <h1>QR Generator Tool.</h1>
       <p>QR To: <span class="important">{{ inputURL }}</span></p>
+      <h3></h3>
     </section>
     
     <section class="container">
       <form @submit.prevent="generateQR">
-        <label for="">Insert URL or Text</label>
+        <label for="input-text">Insert URL or Text</label>
         <p class="error" v-if="qrError">Please insert a valid text or URL.</p>
-        <input type="text" v-model="inputURL" placeholder="www.example.com | example">
+        <input type="text" id="input-text" v-model="inputURL" placeholder="www.example.com | example">
+        <label for="size">QR size: <span>{{ sizeInput === '' ? '200x200' : sizeInput }}</span></label>
+        <select name="" id="size" v-model="sizeInput">
+          <option value="">Default</option>
+          <option value="30x30">Small</option>
+          <option value="500x500">Medium</option>
+          <option value="900x900">Large</option>
+        </select>
         <button type="submit" class="btn-primary">Generate</button>
       </form>
       <div class="qr-container">
@@ -101,11 +110,17 @@ main{
     flex-direction: column;
     gap: 20px;
   }
+  label span{
+    color: rgb(58, 58, 58);
+    font-size: 15px;
+    font-weight: bold;
+  }
   .qr-container{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    flex-wrap: wrap;
     padding: 2em;
     gap: 1em;
     width: 100%;
