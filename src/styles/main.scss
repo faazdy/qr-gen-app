@@ -85,6 +85,16 @@ input, select{
     font-size: $textSize;
     width: 100%;
 }
+input[type="color"]{
+    width: 50px !important;
+    padding: 0;
+    height: 3em;
+    border: none;
+    border-radius: 5px;
+    background-color: transparent;
+    overflow: hidden;
+    cursor: pointer;
+}
 
 .btn-primary{
     display: inline-block;
