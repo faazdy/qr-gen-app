@@ -53,6 +53,8 @@ const downloadQR = async () => {
 }
 
 
+
+
 </script>
 
 <template>
@@ -95,9 +97,10 @@ main{
   min-height: 100vh;
 }
 .container{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   border: 1px solid rgb(238, 238, 238);
   border-radius: 20px;
   width: 100%;
@@ -105,6 +108,7 @@ main{
   overflow: auto;
 
   form{
+    flex: 50%;
     padding: 1em;
     display: flex;
     flex-direction: column;
@@ -116,6 +120,7 @@ main{
     font-weight: bold;
   }
   .qr-container{
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
