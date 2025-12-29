@@ -24,7 +24,7 @@
             <br>
             <p>
                 Just type or paste any URL, generate your QR instantly, and download it in high quality.
-                No sign-ups. No complications. Just fast, reliable QR codes made for everyone.
+                <b>No sign-ups. No complications.</b> Just fast, reliable QR codes made for everyone.
             </p>
         </section>
 

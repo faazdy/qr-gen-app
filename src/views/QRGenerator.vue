@@ -75,7 +75,7 @@ const downloadQR = async () => {
         <article class="form-text">
           <label for="input-text">Insert URL or Text</label>
           <p class="error" v-if="qrError">Please insert a valid text or URL.</p>
-          <input type="text" id="input-text" v-model="inputURL" placeholder="www.example.com | example" >
+          <input type="text" id="input-text" v-model="inputURL" placeholder="www.example.com | example" :class="qrError ? 'input-error' : '' ">
         </article>
         <details>
           <summary>More Settings.</summary>
@@ -218,6 +218,7 @@ main {
   font-size: 13px;
   color: rgb(105, 105, 105);
 }
+
 
 @media screen and (max-width: 768px) {
   .container form {

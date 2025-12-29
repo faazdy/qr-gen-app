@@ -47,6 +47,10 @@ p{
     font-style: italic;
     text-decoration: underline;
 }
+.input-error{
+    border: 1px solid #990909a2;
+}
+
 a{
     color: $mainBlack;
     text-decoration: none;
